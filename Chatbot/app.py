@@ -14,8 +14,8 @@ load_dotenv()
 # Langsmith tracking (Observable)
 os.environ['GROQ_API_KEY'] = os.getenv("GROQ_API_KEY")
 # os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
-os.environ["LANGCHAIN_TRACING_VR"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
+# os.environ["LANGCHAIN_TRACING_VR"] = "true"
+# os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 
 # Defining Prompt Template
 
@@ -29,7 +29,7 @@ prompt = ChatPromptTemplate.from_messages(
 # UI
 
 st.title("Talk with the chef 👨‍🍳")
-inputText = st.text_input("Ask questions about planets")
+inputText = st.text_input("Ask questions about dishes")
 
 # Not having the open AI API key, but learning to create functionality
 # Ollama enables us to run large language models locally, automatically does the compression
@@ -43,7 +43,7 @@ inputText = st.text_input("Ask questions about planets")
 # Using groq inference engine
 
 # groqllm = ChatGroq(model="llama3-70b-8192",temperature=0) 
-groqApi = ChatGroq(model="gemma-7b-It",temperature=1)
+groqApi = ChatGroq(model="gemma-7b-It",temperature=1) #0-2
 outputparser = StrOutputParser()
 chainSec = prompt|groqApi|outputparser
 
