@@ -4,3 +4,4 @@ venv/
 crewai_env
 .chainlit
 .files
+chainlit.md
